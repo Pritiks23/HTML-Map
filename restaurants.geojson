@@ -1,0 +1,143 @@
+// I troubleshoot for like 3 hours but couldn't find out why the features were not showing up in the Map, I tried using the code from lab 6 as a base to try to emulate and used lecture notes. My intention
+// was to use an external GEOJSON file to put the feature data in, below is all the data I manually found for this project. Also I added two pluggins to the HTML(geocoder or locate)
+// file but I don't know if its showing up correctly.
+var restaurants = {
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "RAKKAN Ramen",
+                "description": "Vegan Noodles, Ramen in Downtown LA",
+                "url": "https://rakkanramen.com/locations/dtla/"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-118.239326, 34.049389]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "PIZZANISTA!DTLA",
+                "description": "Vegan Pizza and Gluten Free options, locally owned",
+                "url": "https://pizzanista.com"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-118.23163, 34.034797]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Vegan Hooligans",
+                "description": "100% Plant based burritos and brunch",
+                "url": "https://vegan-hooligans-dtla.square.site/"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-118.250617, 34.042588	]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Vegan Viva Taqueria",
+                "description": "Mexican Vegan food<br> 1.7 miles from MDC",
+                "url": "https://echoparkeats.com/s/viva-vegan-taqueria/1411-w-sunset-blvd-los-angeles/9bed4518-21d3-4edd-8e80-1f7b900a728e/"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-118.251821, 34.07458]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "The Vegan Joint",
+                "description": "Specialities include fried tofu, lemon shrimps, fresh spring rolls, and Pumpkin Curry",
+                "url": "https://theveganjoint.com"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-118.411399, 34.028648	]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "The Vegan Playground",
+                "description": "Local Street Vendor, weekly night market of LA",
+                "url": "https://veganplayground.com"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-118.233112, 34.050788]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Cena Vegan",
+                "description": "Our mission is to celebrate and unify the community by providing delicious plat based food.",
+                "url": "https://www.cenavegan.com/our-story"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-118.205802, 34.066572]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Just What I Kneaded",
+                "description": "Vegan Bakery and Cafe, serving hot coffee, cinnamon rolls, and slices of pie",
+                "url": "https://www.justwhatikneadedbakery.com"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-118.243548, 34.102486]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "un solo sol",
+                "description": "Offers a variety of Vegan and Vegetarian cuisine in Boyle Heights<br> all food is not processed<br> Specialities include Lebanese-style Tabbouleh, Kheer Bowlm and Pupusa",
+                "url": "https://un-solo-sol.squarespace.com/menu-un-solo-sol"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-118.21903, 34.046975]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Glowing Plant Based Eatery & Market",
+                "description": "Vegan Health market and Juice bar featuring Acai Bowls and Gluten Free Sandwiches in Echo Park, noth of Sunset BLVD",
+                "url": "https://www.glowingeatery.com/?location=11ec57173c183fbbb5a1ac1f6bbbcc9c"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-118.254901, 34.081257	]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Vegan Glory",
+                "description": "No-frills Thai-Asian eatery serving vegan soups, curries & noodles to eat in or carry out.",
+                "url": "http://www.veganglory.net"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-118.37284, 34.076338]
+            }
+        }
+    ]
+};
+var geojsonLayer = L.geoJSON(restaurants).addTo(mymap);
+
+</script>

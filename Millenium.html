@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vegan Resturants near Millenium Dance Complex, LA</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
+<script src="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
+
+</head>
+<body>
+    <h1>Vegan Guide Map of Los Angeles</h1>
+    <p>This interactive map shows Vegan Restaurants near Millenium Dance Complex a popular location for dancers to train from all around the world. As professional dancers need to usually eat healthy, I wanted to showcase areas and routes to popular vegan restaurants near MDC. I provided various routes for walking and cycling to some places. The map targets both local dancers and tourists interested in finding healthy vegan resturants near the place where they spend a large amount of time daily. I chose Thunderforest's Landscape style so I can show terrain information and help in navigation. Additionally, the map includes functions such as address search and a locate control to help with interactive navigation.</p>    
+<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+<div id="mapid" style="width: 600px; height: 400px; margin: auto"></div>
+
+<script>
+var mymap = L.map('mapid', {
+    center: [34.139480, -118.251340],
+    zoom: 10
+});
+L.tileLayer('http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png').addTo(mymap);
+
+var walkingRoute = [
+    [34.139480, -118.251340],
+    [34.035840, -118.381]
+];
+L.polyline(walkingRoute, {color: 'blue'}).bindPopup('Walking Route to the Vegan Joint<br>Distance in miles: 18.2 <br>Estimated Time: 40 mins').addTo(mymap);
+
+var cyclingRoute = [
+    [34.139480, -118.251340],
+    [34.042920, -118.252820],
+];
+L.polyline(cyclingRoute, {color: 'green'}).bindPopup('Cycling Route to Wild Living Routes<br>Distance in miles: 12 <br> Estimated Time: 52 mins').addTo(mymap);
+var glendalePolygon = [
+        [34.1914, -118.2913],  
+        [34.1914, -118.2253],  
+        [34.1165, -118.2253],  
+        [34.1165, -118.2913],  
+        [34.1914, -118.2913]   
+    ];
+    L.polygon(glendalePolygon, {color: 'red'}).bindPopup('Glendale, CA<br> Also called: Jewel City, and is one of the largest Armenian-American populations in US<br>Population: 190k<a href="https://www.glendaleca.gov/government/about-us" target="_blank">More info</a> ').addTo(mymap);
+    
+    var westHollywoodPolygon = [
+        [34.1050, -118.4000], 
+        [34.1050, -118.3430],  
+        [34.0800, -118.3430],  
+        [34.0800, -118.4000],  
+        [34.1050, -118.4000] 
+    ];
+    L.polygon(westHollywoodPolygon, {color: 'red'}).bindPopup('West Hollywood, CA<br> Home to Sunset Street <br> Population 35k<a href="https://en.wikipedia.org/wiki/West_Hollywood,_California" target="_blank">More info</a>').addTo(mymap);
+    L.Control.geocoder().addTo(map);
+    L.control.locate().addTo(map);
+    var newdatalayer = L.geoJSON(restaurants).addTo(mymap);
+    var market_Layer = L.geoJSON(false, {
+				pointToLayer: function (feature, latlng) {return L.circleMarker(latlng)},
+				style: MarkerOptions,
+				onEachFeature: function(feature, layer) {layer.bindPopup(feature.properties.name +'<br>'+ feature.properties.description + '<br>'+ feature.properties.url );},
+			}).addTo(mymap)
+</script>
+</body>
+</html>
